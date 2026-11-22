@@ -16,7 +16,7 @@ class Entidad(ABC):
         if not isinstance(nombre, str) or not nombre.strip():
             raise DatoInvalidoError("El nombre no puede estar vacío.")
         
-# Guarda los datos como atributos privados 
+# Pernite guarda los datos como atributos privados 
         self.__identificacion = identificacion
         self.__nombre = nombre.strip()
 

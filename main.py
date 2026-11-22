@@ -12,7 +12,7 @@ clientes = []
 servicios = []
 reservas = []
 
-# Ejecuta cada operación y controla los errores que puedan presentarse
+# Ejecuta cada operación y controla los errores que puedan llegar a presentarse
 def ejecutar_operacion(numero, descripcion, accion):
     """Ejecuta una operación y controla cualquier error."""
 

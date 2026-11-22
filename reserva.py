@@ -3,7 +3,7 @@
 from excepciones import ReservaInvalidaError, DatosFaltantesError
 from registro import registrar_evento
 
-# Representación de las reservas realizadas por los clientes
+# Es la representación de las reservas realizadas por los clientes
 class Reserva:
     """Representa una reserva realizada por un cliente."""
 
@@ -84,7 +84,7 @@ class Reserva:
 
         return "La reserva fue cancelada."
 
-# Calcula el costo y finalización del proceso de la reserva
+# Sirve para calcular el costo y finalización del proceso de la reserva
     def procesar(self, impuesto=0, descuento=0):
         if self.__estado != "Confirmada":
             raise ReservaInvalidaError("Primero debe confirmar la reserva.")

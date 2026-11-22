@@ -12,10 +12,10 @@ def registrar_evento(mensaje):
         archivo.write(f"[{fecha}] EVENTO: {mensaje}\n")
 
 
-# Guarda los errores que ocurren durante el programa.
+# Guarda los errores que ocurren durante todo el programa.
 def registrar_error(mensaje):
     fecha = datetime.now()
 
-# Agrega el error al archivo de registros.
+# Agrega los errores al archivo de registros.
     with open("logs.txt", "a", encoding="utf-8") as archivo:
         archivo.write(f"[{fecha}] ERROR: {mensaje}\n")
