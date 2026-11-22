@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from entidades import Entidad
-from excepciones import DatoInvalidoError
+from excepciones import DatoInvalidoError,ServicioNoDisponibleError
 
 
 class Servicio(Entidad, ABC):
@@ -11,7 +11,7 @@ class Servicio(Entidad, ABC):
     def __init__(self, identificacion, nombre, tarifa, disponible=True):
         super().__init__(identificacion, nombre)
 
-# Comprubea que la tarifa sea un valor mayor a cero
+# Comprueba que la tarifa sea un valor mayor que cero
         if (
             not isinstance(tarifa, (int, float))
             or isinstance(tarifa, bool)
@@ -74,11 +74,11 @@ class Servicio(Entidad, ABC):
 class ReservaSala(Servicio):
     """Servicio de reserva de salas."""
 
-# Sirve para comprobar la duración de la reserva sea correcta
+# Sirve para comprobar que la duración de la reserva sea correcta
     def validar_parametros(self, duracion):
         self._validar_duracion(duracion)
 
-# Calcula el costo de la sala con impuesto y despcuento opcionales
+# Calcula el costo de la sala con impuesto y descuento opcionales
     def calcular_costo(self, duracion, impuesto=0, descuento=0):
         self.validar_parametros(duracion)
 
@@ -99,11 +99,11 @@ class ReservaSala(Servicio):
 class AlquilerEquipo(Servicio):
     """Servicio de alquiler de equipos tecnológicos."""
 
-# Sirve para comprobar la duración del alquiler sea correcta
+# Sirve para comprobar que la duración del alquiler sea correcta
     def validar_parametros(self, duracion):
         self._validar_duracion(duracion)
 
-# Clacula el costo del equipo incluyendo un recargo del 10%
+# Sirve para calcular el costo del equipo incluyendo un recargo del 10%
     def calcular_costo(self, duracion, impuesto=0, descuento=0):
         self.validar_parametros(duracion)
 
@@ -127,11 +127,11 @@ class AlquilerEquipo(Servicio):
 class AsesoriaEspecializada(Servicio):
     """Servicio de asesoría tecnológica especializada."""
 
-# Comprueba que la duración de la asesoria sea correcta
+# Comprueba que la duración de la asesoría sea correcta
     def validar_parametros(self, duracion):
         self._validar_duracion(duracion)
 
-# Sirve para calcular el costo de la asesoria incluyendo un recargo del 15%
+# Sirve para calcular el costo de la asesoría incluyendo un recargo del 15%
     def calcular_costo(self, duracion, impuesto=0, descuento=0):
         self.validar_parametros(duracion)
 
@@ -144,7 +144,7 @@ class AsesoriaEspecializada(Servicio):
 
         return round(total, 2)
 
-# Devulve una descripción de la asesoria 
+# Retorna la descripción detallada del servicio de asesoría 
     def describir_servicio(self):
         return (
             f"Asesoría especializada: {self.nombre}. "
